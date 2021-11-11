@@ -10,8 +10,8 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 const routes: Routes = [
   { path: 'heroes', component: HeroesComponent },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'detail/:id', component: HeroDetailComponent }, // The ':' represented a parametrised route
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' }, // Auto redirect to the dashboard
+  { path: 'detail/:id', component: HeroDetailComponent },     // The ':' represented a parametrised route
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },  // Auto redirect to the dashboard
 ];
 
 @NgModule({
