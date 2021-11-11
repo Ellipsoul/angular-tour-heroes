@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
+import { MessageService } from '../message.service';
 
 
 // All components are annotated with the @Component decorator
@@ -16,7 +17,7 @@ export class HeroesComponent implements OnInit {  // Export component so it can 
   heroes:Hero[] = [];      // Mocked heroes
 
   // Declaring heroService here makes it available in the class
-  constructor(private heroService:HeroService) {  }
+  constructor(private heroService:HeroService, private messageService:MessageService) {  }
 
   // This synchornous implementation no longer works. See below
   // getHeroes():void {
@@ -38,6 +39,8 @@ export class HeroesComponent implements OnInit {  // Export component so it can 
   // Handles state of selected hero
   onSelect(hero: Hero):void {
     this.selectedHero = hero;
+    // Send a message whenever a new hero is selected
+    this.messageService.add(`HeroesComponent: Selected hero id=${hero.id}`)
   }
 
 }

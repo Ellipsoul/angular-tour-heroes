@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
+
+import { Observable, of } from 'rxjs';
+
 import { Hero } from './hero';
 import { HEROES } from './mock-heroes';
-import { Observable, of } from 'rxjs';
+import { MessageService } from './message.service';
 
 // This is an Angular service which can inject data into other components
 // A provider needs to be registered in order for the service to work
@@ -18,8 +21,9 @@ export class HeroService {
   // Angular calls using HttpClient.get() will return an Observable, which is asyncrhonous
   getHeroes():Observable<Hero[]> {
     const heroes = of(HEROES);
+    this.messageService.add("HeroService: fetched heroes");
     return heroes;
   }
 
-  constructor() { }
+  constructor(private messageService:MessageService) { }
 }
