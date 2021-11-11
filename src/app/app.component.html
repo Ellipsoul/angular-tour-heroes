@@ -2,10 +2,12 @@
 
 <!-- A routerLink is used to route to pages in Angular -->
 <nav>
-  <a routerLink="/heroes">Heroes</a>
+  <button routerLink="/heroes">Heroes</button>
+  <button routerLink="/dashboard">Dashboard</button>
 </nav>
 
-<app-messages></app-messages>
 <!-- Routing provided here at the app root level -->
+<!-- Routed components are inserted here! So the location of this is significant -->
 <router-outlet></router-outlet>
 
+<app-messages></app-messages>

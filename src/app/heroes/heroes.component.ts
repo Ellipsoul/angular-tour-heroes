@@ -24,23 +24,23 @@ export class HeroesComponent implements OnInit {  // Export component so it can 
   //   this.heroes = this.heroService.getHeroes();
   // }
 
-  // Subscribe to the getHeroes function in the service and use the return value to set the heroes
-  getHeroes(): void {
-    this.heroService.getHeroes()
-        .subscribe(heroes => this.heroes = heroes);
-  }
-
   // This is a lifecycle hook called just after creating a component
   ngOnInit(): void {
     // Call here rather than in the constructor since the constructor should be kept as simple as possible
     this.getHeroes();
   }
 
-  // Handles state of selected hero
-  onSelect(hero: Hero):void {
-    this.selectedHero = hero;
-    // Send a message whenever a new hero is selected
-    this.messageService.add(`HeroesComponent: Selected hero id=${hero.id}`)
+  // Subscribe to the getHeroes function in the service and use the return value to set the heroes
+  getHeroes(): void {
+    this.heroService.getHeroes()
+        .subscribe(heroes => this.heroes = heroes);
   }
+
+  // Handles state of selected hero (no longer used)
+  // onSelect(hero: Hero):void {
+  //   this.selectedHero = hero;
+  //   // Send a message whenever a new hero is selected
+  //   this.messageService.add(`HeroesComponent: Selected hero id=${hero.id}`)
+  // }
 
 }
