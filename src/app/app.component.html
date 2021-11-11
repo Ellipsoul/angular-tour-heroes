@@ -1,3 +1,11 @@
 <h1>{{title}}</h1>
-<app-heroes></app-heroes>
+
+<!-- A routerLink is used to route to pages in Angular -->
+<nav>
+  <a routerLink="/heroes">Heroes</a>
+</nav>
+
 <app-messages></app-messages>
+<!-- Routing provided here at the app root level -->
+<router-outlet></router-outlet>
+
