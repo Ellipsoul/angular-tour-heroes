@@ -1,16 +1,17 @@
 <h2>My Heroes</h2>
-<!-- Example usage of the ngFor directive -->
+<!-- Example usage of the ngFor directive, a repeater directive -->
 <ul class="heroes">
-  <li *ngFor="let hero of heroes">
+  <!-- Example of angular event binding -->
+  <!-- Also example of conditionally attaching a class -->
+  <li
+    *ngFor="let hero of heroes"
+    (click)="onSelect(hero)"
+    [class.selected]="hero === selectedHero"
+  >
     <span class="badge">{{hero.id}}</span> {{hero.name}}
   </li>
 </ul>
 
-<!-- Pipe converts string to uppercase -->
-<h2>{{hero.name | uppercase}} Details</h2>
-<div><span>id: </span>{{hero.id}}</div>
-<div>
-  <label for="name">Hero name: </label>
-  <!-- ngModel is Angular's way of doing 2-way data binding with an input -->
-  <input id="name" [(ngModel)]="hero.name" placeholder="name">
-</div>
+<!-- Attach props using square brackets -->
+<!-- This is a one way binding -->
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>

@@ -1,0 +1,11 @@
+<!-- Renders only if selectedHero is defined -->
+<div *ngIf="hero">
+  <!-- Pipe converts string to uppercase -->
+  <h2>{{hero?.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{hero.id}}</div>
+  <div>
+    <label for="hero-name">Hero name: </label>
+    <!-- ngModel is Angular's way of doing 2-way data binding with an input -->
+    <input id="hero-name" [(ngModel)]="hero.name" placeholder="name">
+  </div>
+</div>
